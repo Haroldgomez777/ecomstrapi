@@ -1,0 +1,21 @@
+{
+  "kind": "collectionType",
+  "collectionName": "monies",
+  "info": {
+    "singularName": "money",
+    "pluralName": "monies",
+    "displayName": "money"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "amount": {
+      "type": "string"
+    },
+    "currencyCode": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "kind": "collectionType",
+  "collectionName": "products",
+  "info": {
+    "singularName": "product",
+    "pluralName": "products",
+    "displayName": "product",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "availableForSale": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "text"
+    },
+    "descriptionHtml": {
+      "type": "text"
+    },
+    "product_options": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-option.product-option"
+    },
+    "product_variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-variant.product-variant"
+    },
+    "featured_images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::image.image"
+    },
+    "images": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::image.image"
+    },
+    "tags": {
+      "type": "json"
+    },
+    "options": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-option.product-option"
+    },
+    "priceRange": {
+      "type": "component",
+      "repeatable": true,
+      "component": "price-range.price-range"
+    },
+    "variants": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product-variant.product-variant"
+    },
+    "featuredImage": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::image.image"
+    },
+    "seo": {
+      "type": "component",
+      "repeatable": true,
+      "component": "seo.seo"
+    },
+    "handle": {
+      "type": "string"
+    }
+  }
+}

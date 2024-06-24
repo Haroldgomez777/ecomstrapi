@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_money_costs",
+  "info": {
+    "displayName": "cost",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "totalAmount": {
+      "displayName": "totalAmount",
+      "type": "component",
+      "repeatable": false,
+      "component": "total-amount.total-amount"
+    },
+    "totalTaxAmount": {
+      "displayName": "totalTaxAmount",
+      "type": "component",
+      "repeatable": false,
+      "component": "total-tax-amount.total-tax-amount"
+    }
+  }
+}

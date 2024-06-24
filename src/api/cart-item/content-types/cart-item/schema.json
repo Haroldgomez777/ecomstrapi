@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "cart_items",
+  "info": {
+    "singularName": "cart-item",
+    "pluralName": "cart-items",
+    "displayName": "cart-item",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "quantity": {
+      "type": "integer"
+    },
+    "cost": {
+      "type": "component",
+      "repeatable": true,
+      "component": "cost.cost"
+    },
+    "merchandise": {
+      "type": "component",
+      "repeatable": false,
+      "component": "merchandise.merchandise"
+    }
+  }
+}

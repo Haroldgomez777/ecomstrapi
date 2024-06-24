@@ -1,0 +1,29 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_variants",
+  "info": {
+    "singularName": "product-variant",
+    "pluralName": "product-variants",
+    "displayName": "product-variant"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "availableForSale": {
+      "type": "boolean"
+    },
+    "selectedOptions": {
+      "type": "json"
+    },
+    "price": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::money.money"
+    }
+  }
+}

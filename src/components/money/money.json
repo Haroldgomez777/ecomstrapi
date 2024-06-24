@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_money_monies",
+  "info": {
+    "displayName": "money"
+  },
+  "options": {},
+  "attributes": {
+    "amount": {
+      "type": "decimal"
+    },
+    "currencyCode": {
+      "type": "string"
+    }
+  }
+}

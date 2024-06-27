@@ -58,8 +58,10 @@ export interface SeoSeo extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    description: Attribute.String;
+    metaTitle: Attribute.String;
+    metaDescription: Attribute.String;
+    metaKeywords: Attribute.String;
+    shareImage: Attribute.Media;
   };
 }
 

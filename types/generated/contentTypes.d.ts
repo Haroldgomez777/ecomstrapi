@@ -891,40 +891,6 @@ export interface ApiCollectionCollection extends Schema.CollectionType {
   };
 }
 
-export interface ApiImageImage extends Schema.CollectionType {
-  collectionName: 'images';
-  info: {
-    singularName: 'image';
-    pluralName: 'images';
-    displayName: 'image';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    url: Attribute.String;
-    altText: Attribute.Text;
-    width: Attribute.Integer;
-    height: Attribute.Integer;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::image.image',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::image.image',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiMenuMenu extends Schema.CollectionType {
   collectionName: 'menus';
   info: {
@@ -1033,16 +999,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'oneToMany',
       'api::product-variant.product-variant'
     >;
-    featured_images: Attribute.Relation<
-      'api::product.product',
-      'oneToMany',
-      'api::image.image'
-    >;
-    images: Attribute.Relation<
-      'api::product.product',
-      'oneToMany',
-      'api::image.image'
-    >;
     tags: Attribute.JSON;
     options: Attribute.Relation<
       'api::product.product',
@@ -1055,13 +1011,10 @@ export interface ApiProductProduct extends Schema.CollectionType {
       'oneToMany',
       'api::product-variant.product-variant'
     >;
-    featuredImage: Attribute.Relation<
-      'api::product.product',
-      'oneToOne',
-      'api::image.image'
-    >;
     seo: Attribute.Component<'seo.seo', true>;
     handle: Attribute.String;
+    images: Attribute.Media;
+    featuredImage: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1148,6 +1101,30 @@ export interface ApiProductVariantProductVariant extends Schema.CollectionType {
   };
 }
 
+export interface ApiSeoSeo extends Schema.CollectionType {
+  collectionName: 'seos';
+  info: {
+    singularName: 'seo';
+    pluralName: 'seos';
+    displayName: 'SEO';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    description: Attribute.Text;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::seo.seo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::seo.seo', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1169,13 +1146,13 @@ declare module '@strapi/types' {
       'api::cart.cart': ApiCartCart;
       'api::cart-item.cart-item': ApiCartItemCartItem;
       'api::collection.collection': ApiCollectionCollection;
-      'api::image.image': ApiImageImage;
       'api::menu.menu': ApiMenuMenu;
       'api::money.money': ApiMoneyMoney;
       'api::page.page': ApiPagePage;
       'api::product.product': ApiProductProduct;
       'api::product-option.product-option': ApiProductOptionProductOption;
       'api::product-variant.product-variant': ApiProductVariantProductVariant;
+      'api::seo.seo': ApiSeoSeo;
     }
   }
 }

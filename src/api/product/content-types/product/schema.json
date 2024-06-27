@@ -34,16 +34,6 @@
       "relation": "oneToMany",
       "target": "api::product-variant.product-variant"
     },
-    "featured_images": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::image.image"
-    },
-    "images": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::image.image"
-    },
     "tags": {
       "type": "json"
     },
@@ -62,11 +52,6 @@
       "relation": "oneToMany",
       "target": "api::product-variant.product-variant"
     },
-    "featuredImage": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::image.image"
-    },
     "seo": {
       "type": "component",
       "repeatable": true,
@@ -74,6 +59,27 @@
     },
     "handle": {
       "type": "string"
+    },
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "featuredImage": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

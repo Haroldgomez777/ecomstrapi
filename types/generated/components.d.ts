@@ -51,6 +51,17 @@ export interface PriceRangePriceRange extends Schema.Component {
   };
 }
 
+export interface SelectedOptionsSelectedOptions extends Schema.Component {
+  collectionName: 'components_selected_options_selected_options';
+  info: {
+    displayName: 'selectedOptions';
+  };
+  attributes: {
+    name: Attribute.String;
+    value: Attribute.String;
+  };
+}
+
 export interface SeoSeo extends Schema.Component {
   collectionName: 'components_seo_seos';
   info: {
@@ -88,6 +99,7 @@ declare module '@strapi/types' {
       'merchandise.merchandise': MerchandiseMerchandise;
       'money.money': MoneyMoney;
       'price-range.price-range': PriceRangePriceRange;
+      'selected-options.selected-options': SelectedOptionsSelectedOptions;
       'seo.seo': SeoSeo;
       'total-amount.total-amount': TotalAmountTotalAmount;
       'total-tax-amount.total-tax-amount': TotalTaxAmountTotalTaxAmount;

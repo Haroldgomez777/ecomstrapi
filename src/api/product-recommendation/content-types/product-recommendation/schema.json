@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "product_recommendations",
+  "info": {
+    "singularName": "product-recommendation",
+    "pluralName": "product-recommendations",
+    "displayName": "ProductRecommendation",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "product": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::product.product"
+    }
+  }
+}

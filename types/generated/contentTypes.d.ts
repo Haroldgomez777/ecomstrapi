@@ -989,11 +989,6 @@ export interface ApiProductProduct extends Schema.CollectionType {
     availableForSale: Attribute.Boolean;
     description: Attribute.Text;
     descriptionHtml: Attribute.Text;
-    product_options: Attribute.Relation<
-      'api::product.product',
-      'oneToMany',
-      'api::product-option.product-option'
-    >;
     product_variants: Attribute.Relation<
       'api::product.product',
       'oneToMany',
@@ -1064,12 +1059,54 @@ export interface ApiProductOptionProductOption extends Schema.CollectionType {
   };
 }
 
+export interface ApiProductRecommendationProductRecommendation
+  extends Schema.CollectionType {
+  collectionName: 'product_recommendations';
+  info: {
+    singularName: 'product-recommendation';
+    pluralName: 'product-recommendations';
+    displayName: 'ProductRecommendation';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    products: Attribute.Relation<
+      'api::product-recommendation.product-recommendation',
+      'oneToMany',
+      'api::product.product'
+    >;
+    product: Attribute.Relation<
+      'api::product-recommendation.product-recommendation',
+      'oneToOne',
+      'api::product.product'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::product-recommendation.product-recommendation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::product-recommendation.product-recommendation',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProductVariantProductVariant extends Schema.CollectionType {
   collectionName: 'product_variants';
   info: {
     singularName: 'product-variant';
     pluralName: 'product-variants';
     displayName: 'product-variant';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1077,11 +1114,14 @@ export interface ApiProductVariantProductVariant extends Schema.CollectionType {
   attributes: {
     title: Attribute.String;
     availableForSale: Attribute.Boolean;
-    selectedOptions: Attribute.JSON;
     price: Attribute.Relation<
       'api::product-variant.product-variant',
       'oneToOne',
       'api::money.money'
+    >;
+    selectedOptions: Attribute.Component<
+      'selected-options.selected-options',
+      true
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1151,6 +1191,7 @@ declare module '@strapi/types' {
       'api::page.page': ApiPagePage;
       'api::product.product': ApiProductProduct;
       'api::product-option.product-option': ApiProductOptionProductOption;
+      'api::product-recommendation.product-recommendation': ApiProductRecommendationProductRecommendation;
       'api::product-variant.product-variant': ApiProductVariantProductVariant;
       'api::seo.seo': ApiSeoSeo;
     }

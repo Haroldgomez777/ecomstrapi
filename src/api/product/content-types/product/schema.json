@@ -24,11 +24,6 @@
     "descriptionHtml": {
       "type": "text"
     },
-    "product_options": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::product-option.product-option"
-    },
     "product_variants": {
       "type": "relation",
       "relation": "oneToMany",
@@ -72,14 +67,15 @@
       ]
     },
     "featuredImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     }
   }
 }

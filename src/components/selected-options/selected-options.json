@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_selected_options_selected_options",
+  "info": {
+    "displayName": "selectedOptions"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "value": {
+      "type": "string"
+    }
+  }
+}

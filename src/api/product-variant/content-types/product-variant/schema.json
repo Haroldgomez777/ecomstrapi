@@ -4,7 +4,8 @@
   "info": {
     "singularName": "product-variant",
     "pluralName": "product-variants",
-    "displayName": "product-variant"
+    "displayName": "product-variant",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -17,13 +18,15 @@
     "availableForSale": {
       "type": "boolean"
     },
-    "selectedOptions": {
-      "type": "json"
-    },
     "price": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::money.money"
+    },
+    "selectedOptions": {
+      "type": "component",
+      "repeatable": true,
+      "component": "selected-options.selected-options"
     }
   }
 }

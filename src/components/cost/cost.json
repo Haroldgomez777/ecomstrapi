@@ -6,17 +6,20 @@
   },
   "options": {},
   "attributes": {
-    "totalAmount": {
-      "displayName": "totalAmount",
+    "subtotalAmount": {
       "type": "component",
       "repeatable": false,
-      "component": "total-amount.total-amount"
+      "component": "money.money"
     },
     "totalTaxAmount": {
-      "displayName": "totalTaxAmount",
       "type": "component",
       "repeatable": false,
-      "component": "total-tax-amount.total-tax-amount"
+      "component": "money.money"
+    },
+    "totalAmount": {
+      "type": "component",
+      "repeatable": false,
+      "component": "money.money"
     }
   }
 }

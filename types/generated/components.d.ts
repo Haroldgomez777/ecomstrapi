@@ -7,8 +7,9 @@ export interface CostCost extends Schema.Component {
     description: '';
   };
   attributes: {
-    totalAmount: Attribute.Component<'total-amount.total-amount'>;
-    totalTaxAmount: Attribute.Component<'total-tax-amount.total-tax-amount'>;
+    subtotalAmount: Attribute.Component<'money.money'>;
+    totalTaxAmount: Attribute.Component<'money.money'>;
+    totalAmount: Attribute.Component<'money.money'>;
   };
 }
 
